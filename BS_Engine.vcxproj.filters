@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="공용">
+      <UniqueIdentifier>a6504310-7ef3-484c-b6cd-9287ee7e957a</UniqueIdentifier>
+    </Filter>
+    <Filter Include="자산">
+      <UniqueIdentifier>832938ac-349e-4a56-a011-797873aa126a</UniqueIdentifier>
+      <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
+    </Filter>
+    <Filter Include="내용">
+      <UniqueIdentifier>c4de6fcd-1fbc-4b01-bfda-fd2a47861ed1</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="Common\DirectXHelper.h">
+      <Filter>공용</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\StepTimer.h">
+      <Filter>공용</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\DeviceResources.h">
+      <Filter>공용</Filter>
+    </ClInclude>
+    <ClCompile Include="Common\DeviceResources.cpp">
+      <Filter>공용</Filter>
+    </ClCompile>
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <Filter>자산</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>자산</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>자산</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>자산</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>자산</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>자산</Filter>
+    </Image>
+    <Filter Include="내용\컴포넌트">
+      <UniqueIdentifier>{020d608d-866b-4f73-9e3d-db81393d008d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="샘플">
+      <UniqueIdentifier>{a1d83374-df4b-4946-8dc5-7c91699781a5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.cpp" />
+    <ClCompile Include="BS_EngineMain.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Content\Sample3DSceneRenderer.cpp">
+      <Filter>샘플</Filter>
+    </ClCompile>
+    <ClCompile Include="Content\SampleFpsTextRenderer.cpp">
+      <Filter>샘플</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>내용</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>내용\컴포넌트</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>내용</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.h" />
+    <ClInclude Include="BS_EngineMain.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Content\Sample3DSceneRenderer.h">
+      <Filter>샘플</Filter>
+    </ClInclude>
+    <ClInclude Include="Content\SampleFpsTextRenderer.h">
+      <Filter>샘플</Filter>
+    </ClInclude>
+    <ClInclude Include="Content\ShaderStructures.h">
+      <Filter>샘플</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>내용</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>내용\컴포넌트</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>내용</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>자산</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BS_Engine_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Content\SamplePixelShader.hlsl">
+      <Filter>샘플</Filter>
+    </FxCompile>
+    <FxCompile Include="Content\SampleVertexShader.hlsl">
+      <Filter>샘플</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>
