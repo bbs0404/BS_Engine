@@ -1,6 +1,4 @@
 #pragma once
-
-#include <d3d11.h>
 #include "SimpleMath.h"
 
 using namespace DirectX::SimpleMath;
@@ -12,7 +10,7 @@ namespace BS_Engine
 	private:
 		friend class GameObject;					//Only GameObject can access constructor of Transform
 
-		Transform(GameObject& gameObject);		
+		Transform(GameObject*);		
 		~Transform();
 
 		Transform(const Transform&) = delete;		//Cannot use Copy Construct
@@ -20,13 +18,13 @@ namespace BS_Engine
 	public:
 		Vector3 position;							//Position of GameObject
 		Vector3 rotation;							//Euler Angles of GameObject
-		Vector3 scale;								//Sacle of GameObject
+		Vector3 scale;								//Scale of GameObject
 		
-		GameObject& gameObject;						//GameObject where this Transform attached to
+		GameObject* gameObject;						//GameObject where this Transform attached to
 
 		#pragma region Matrix
 		inline Matrix TranslateMatrix() { return Matrix::CreateTranslation(position); }
-		inline Matrix RotateMatrix() { return Matrix::CreateFromYawPitchRoll(rotation.y, rotation.x, rotation.z); }
+		inline Matrix RotateMatrix() { return Matrix::CreateFromQuaternion(Rotation()); /*CreateFromYawPitchRoll(rotation.y, rotation.x, rotation.z);*/ }
 		inline Matrix ScaleMatrix() { return Matrix::CreateScale(scale); }
 		inline Matrix WorldMatrix() { return ScaleMatrix() * RotateMatrix() * TranslateMatrix(); }
 		#pragma endregion
@@ -39,5 +37,18 @@ namespace BS_Engine
 		inline Vector3 Up() { return Vector3::Transform(Vector3::Up, RotateMatrix()); }
 		inline Vector3 Down() { return -Up(); }
 		#pragma endregion
+
+		Quaternion Rotation();
+
+		template<class T>
+		T* AddComponent()
+		{
+			return gameObject.AddComponent<T>();
+		}
+		template<class T>
+		T* GetComponent()
+		{
+			return gameObject.GetComponent<T>();
+		}
 	};
 }

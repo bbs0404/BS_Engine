@@ -67,6 +67,26 @@
     <ClCompile Include="Transform.cpp">
       <Filter>내용</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>내용\컴포넌트</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Renderer.cpp">
+      <Filter>내용\컴포넌트</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshRenderer.cpp">
+      <Filter>내용\컴포넌트</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="LineRenderer.cpp">
+      <Filter>내용\컴포넌트</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>내용\컴포넌트</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneRenderer.cpp" />
+    <ClCompile Include="tiny_obj_loader.cc" />
+    <ClCompile Include="DummyRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
@@ -87,9 +107,35 @@
     <ClInclude Include="Component.h">
       <Filter>내용\컴포넌트</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>내용\컴포넌트</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="Components.h">
+      <Filter>내용\컴포넌트</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>내용\컴포넌트</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>내용\컴포넌트</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshRenderer.h">
+      <Filter>내용\컴포넌트</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h" />
+    <ClInclude Include="Material.h">
+      <Filter>내용\컴포넌트</Filter>
+    </ClInclude>
+    <ClInclude Include="LineRenderer.h">
+      <Filter>내용\컴포넌트</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneRenderer.h" />
     <ClInclude Include="Transform.h">
       <Filter>내용</Filter>
     </ClInclude>
+    <ClInclude Include="tiny_obj_loader.h" />
+    <ClInclude Include="DummyRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\StoreLogo.png">
@@ -102,6 +148,16 @@
   <ItemGroup>
     <None Include="BS_Engine_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="..\Debug\monkey.cmo">
+      <Filter>자산</Filter>
+    </None>
+    <None Include="..\Debug\teapot.cmo">
+      <Filter>자산</Filter>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)../..//build/native/bin/Win32\Assimp32.dll" />
+    <None Include="..\Debug\sphere.cmo">
+      <Filter>자산</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Content\SamplePixelShader.hlsl">
@@ -110,5 +166,20 @@
     <FxCompile Include="Content\SampleVertexShader.hlsl">
       <Filter>샘플</Filter>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="output.txt" />
+    <Text Include="teapot.txt">
+      <Filter>자산</Filter>
+    </Text>
+    <Text Include="C:\Users\User\Desktop\capsule.txt">
+      <Filter>자산</Filter>
+    </Text>
+    <Text Include="C:\Users\User\Desktop\sphere.txt">
+      <Filter>자산</Filter>
+    </Text>
+    <Text Include="C:\Users\User\Desktop\0b6d6bb58772c13593d0a0add6004c1c-48cf9c6d1cdd43cc6862d7d34a68114e2b93d497\cube.txt">
+      <Filter>자산</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -3,6 +3,8 @@
 
 #include "..\Common\DirectXHelper.h"
 
+#include "GameObject.h"
+
 using namespace BS_Engine;
 
 using namespace DirectX;
@@ -23,6 +25,7 @@ Sample3DSceneRenderer::Sample3DSceneRenderer(const std::shared_ptr<DX::DeviceRes
 // 창 크기가 변경되면 뷰 매개 변수를 초기화합니다.
 void Sample3DSceneRenderer::CreateWindowSizeDependentResources()
 {
+	/*
 	Size outputSize = m_deviceResources->GetOutputSize();
 	float aspectRatio = outputSize.Width / outputSize.Height;
 	float fovAngleY = 70.0f * XM_PI / 180.0f;
@@ -56,18 +59,38 @@ void Sample3DSceneRenderer::CreateWindowSizeDependentResources()
 		&m_constantBufferData.projection,
 		XMMatrixTranspose(perspectiveMatrix * orientationMatrix)
 		);
-
-	// 시선은 y축을 따라 업 벡터가 있는 상태로 점 (0,-0.1,0)를 보며 (0,0.7,1.5)에 있습니다.
-	static const XMVECTORF32 eye = { 0.0f, 0.7f, 1.5f, 0.0f };
-	static const XMVECTORF32 at = { 0.0f, -0.1f, 0.0f, 0.0f };
-	static const XMVECTORF32 up = { 0.0f, 1.0f, 0.0f, 0.0f };
-
-	XMStoreFloat4x4(&m_constantBufferData.view, XMMatrixTranspose(XMMatrixLookAtRH(eye, at, up)));
+	*/
+	cameraObject.transform.position = Vector3(0, 0, 5);
+	cameraObject.transform.rotation = Vector3(0, 0, 0);
+	cameraObject.AddComponent<Camera>()->SetAsMain();
 }
 
 // 프레임당 한 번 호출됩니다. 큐브를 회전하고 모델 및 뷰 매트릭스를 계산합니다.
 void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 {
+	/*
+	// 시선은 y축을 따라 업 벡터가 있는 상태로 점 (0,-0.1,0)를 보며 (0,0.7,1.5)에 있습니다.
+	
+	static const XMVECTORF32 eye = { 0.0f, 0.7f, 1.5f, 0.0f };
+	static const XMVECTORF32 at = { 0.0f, -0.1f, 0.0f, 0.0f };
+	static const XMVECTORF32 up = { 0.0f, 1.0f, 0.0f, 0.0f };
+
+	XMStoreFloat4x4(&m_constantBufferData.view, XMMatrixTranspose(XMMatrixLookAtRH(eye, at, up)));
+	*/
+	static float degree = 0;
+
+	/*
+	Size outputSize = m_deviceResources->GetOutputSize();
+	float aspectRatio = outputSize.Width / outputSize.Height;
+	XMStoreFloat4x4(&m_constantBufferData.projection,
+		XMMatrixTranspose(Camera::main->PerspectiveMatrix(aspectRatio) * m_deviceResources->GetOrientationTransform3D()));
+	
+	XMStoreFloat4x4(&m_constantBufferData.view, XMMatrixTranspose(Camera::main->ViewMatrix()));
+	
+	degree += timer.GetElapsedSeconds() * 100;
+	cameraObject.transform.rotation = Vector3(0, degree, 0);
+	*/
+
 	if (!m_tracking)
 	{
 		// 도를 라디언으로 변환한 다음 초를 회전 각도로 변환합니다.
@@ -83,7 +106,7 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 void Sample3DSceneRenderer::Rotate(float radians)
 {
 	// 업데이트된 모델 매트릭스를 셰이더에 전달하도록 준비합니다.
-	XMStoreFloat4x4(&m_constantBufferData.model, XMMatrixTranspose(XMMatrixRotationY(radians)));
+	//XMStoreFloat4x4(&m_constantBufferData.model, XMMatrixTranspose(XMMatrixRotationY(radians)));
 }
 
 void Sample3DSceneRenderer::StartTracking()

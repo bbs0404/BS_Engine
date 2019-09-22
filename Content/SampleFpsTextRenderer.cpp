@@ -46,10 +46,12 @@ SampleFpsTextRenderer::SampleFpsTextRenderer(const std::shared_ptr<DX::DeviceRes
 // 표시할 텍스트를 업데이트합니다.
 void SampleFpsTextRenderer::Update(DX::StepTimer const& timer)
 {
+	
 	// 텍스트 표시를 업데이트합니다.
 	uint32 fps = timer.GetFramesPerSecond();
 
-	m_text = (fps > 0) ? std::to_wstring(fps) + L" FPS" : L" - FPS";
+	m_text = std::wstring(L"A");
+	//m_text = (fps > 0) ? std::to_wstring(fps) + L" FPS" : L" - FPS";
 
 	ComPtr<IDWriteTextLayout> textLayout;
 	DX::ThrowIfFailed(
@@ -70,6 +72,31 @@ void SampleFpsTextRenderer::Update(DX::StepTimer const& timer)
 	DX::ThrowIfFailed(
 		m_textLayout->GetMetrics(&m_textMetrics)
 		);
+}
+
+void SampleFpsTextRenderer::Update(std::wstring str)
+{
+	m_text = str;
+
+	ComPtr<IDWriteTextLayout> textLayout;
+	DX::ThrowIfFailed(
+		m_deviceResources->GetDWriteFactory()->CreateTextLayout(
+			m_text.c_str(),
+			(uint32)m_text.length(),
+			m_textFormat.Get(),
+			240.0f, // 입력 텍스트의 최대 너비입니다.
+			50.0f, // 입력 텍스트의 최대 높이입니다.
+			&textLayout
+		)
+	);
+
+	DX::ThrowIfFailed(
+		textLayout.As(&m_textLayout)
+	);
+
+	DX::ThrowIfFailed(
+		m_textLayout->GetMetrics(&m_textMetrics)
+	);
 }
 
 // 화면에 프레임을 렌더링합니다.

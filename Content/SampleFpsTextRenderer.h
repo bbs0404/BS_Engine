@@ -14,6 +14,7 @@ namespace BS_Engine
 		void CreateDeviceDependentResources();
 		void ReleaseDeviceDependentResources();
 		void Update(DX::StepTimer const& timer);
+		void Update(std::wstring str);
 		void Render();
 
 	private:

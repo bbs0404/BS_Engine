@@ -15,7 +15,8 @@ BS_EngineMain::BS_EngineMain(const std::shared_ptr<DX::DeviceResources>& deviceR
 	m_deviceResources->RegisterDeviceNotify(this);
 
 	// TODO: 이 항목을 앱 콘텐츠 초기화로 대체합니다.
-	m_sceneRenderer = std::unique_ptr<Sample3DSceneRenderer>(new Sample3DSceneRenderer(m_deviceResources));
+	//m_sceneRenderer = std::unique_ptr<Sample3DSceneRenderer>(new Sample3DSceneRenderer(m_deviceResources));
+	m_sceneRenderer = std::unique_ptr<SceneRenderer>(new SceneRenderer(m_deviceResources));
 
 	m_fpsTextRenderer = std::unique_ptr<SampleFpsTextRenderer>(new SampleFpsTextRenderer(m_deviceResources));
 
@@ -47,6 +48,7 @@ void BS_EngineMain::Update()
 	m_timer.Tick([&]()
 	{
 		// TODO: 이 항목을 앱 콘텐츠 업데이트 함수로 대체합니다.
+		//m_scene.Update(m_timer);
 		m_sceneRenderer->Update(m_timer);
 		m_fpsTextRenderer->Update(m_timer);
 	});
@@ -78,6 +80,7 @@ bool BS_EngineMain::Render()
 
 	// 장면 개체를 렌더링합니다.
 	// TODO: 이 항목을 앱 콘텐츠 렌더링 함수로 대체합니다.
+	//m_scene.Render();
 	m_sceneRenderer->Render();
 	m_fpsTextRenderer->Render();
 
@@ -87,6 +90,7 @@ bool BS_EngineMain::Render()
 // 릴리스가 필요한 장치 리소스를 렌더러에 알립니다.
 void BS_EngineMain::OnDeviceLost()
 {
+	//m_scene.ReleaseDeviceDependentResources();
 	m_sceneRenderer->ReleaseDeviceDependentResources();
 	m_fpsTextRenderer->ReleaseDeviceDependentResources();
 }
@@ -94,6 +98,7 @@ void BS_EngineMain::OnDeviceLost()
 // 장치 리소스가 이제 다시 만들어질 수 있음을 렌더러에 알립니다.
 void BS_EngineMain::OnDeviceRestored()
 {
+	//m_scene.CreateDeviceDependentResources();
 	m_sceneRenderer->CreateDeviceDependentResources();
 	m_fpsTextRenderer->CreateDeviceDependentResources();
 	CreateWindowSizeDependentResources();

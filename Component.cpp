@@ -2,11 +2,10 @@
 #include "Component.h"
 
 
-Component::Component()
+namespace BS_Engine
 {
-}
-
-
-Component::~Component()
-{
+	Component::Component(GameObject * gameObject)
+		:gameObject(*gameObject)
+	{
+	}
 }

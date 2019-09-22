@@ -3,7 +3,7 @@
 #include "..\Common\DeviceResources.h"
 #include "ShaderStructures.h"
 #include "..\Common\StepTimer.h"
-
+#include "Camera.h"
 namespace BS_Engine
 {
 	// 이 샘플 렌더러는 기본 렌더링 파이프라인을 인스턴스화합니다.
@@ -24,6 +24,7 @@ namespace BS_Engine
 
 	private:
 		void Rotate(float radians);
+		GameObject cameraObject;
 
 	private:
 		// 장치 리소스에 대한 캐시된 포인터입니다.
