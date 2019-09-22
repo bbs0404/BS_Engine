@@ -86,7 +86,6 @@
     </ClCompile>
     <ClCompile Include="SceneRenderer.cpp" />
     <ClCompile Include="tiny_obj_loader.cc" />
-    <ClCompile Include="DummyRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
@@ -135,7 +134,6 @@
       <Filter>내용</Filter>
     </ClInclude>
     <ClInclude Include="tiny_obj_loader.h" />
-    <ClInclude Include="DummyRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\StoreLogo.png">
@@ -168,7 +166,6 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="output.txt" />
     <Text Include="teapot.txt">
       <Filter>자산</Filter>
     </Text>

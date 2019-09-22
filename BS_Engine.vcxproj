@@ -208,7 +208,6 @@
     <ClInclude Include="Content\Sample3DSceneRenderer.h" />
     <ClInclude Include="Content\SampleFpsTextRenderer.h" />
     <ClInclude Include="Content\ShaderStructures.h" />
-    <ClInclude Include="DummyRenderer.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="LineRenderer.h" />
     <ClInclude Include="Material.h" />
@@ -230,7 +229,6 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Content\SampleFpsTextRenderer.cpp" />
     <ClCompile Include="Content\Sample3DSceneRenderer.cpp" />
-    <ClCompile Include="DummyRenderer.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="LineRenderer.cpp" />
     <ClCompile Include="Material.cpp" />
@@ -270,7 +268,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="C:\Users\User\Desktop\sphere.txt" />
-    <Text Include="output.txt" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="teapot.txt">
