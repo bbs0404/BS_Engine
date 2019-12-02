@@ -19,5 +19,13 @@ namespace BS_Engine
 			Microsoft::WRL::ComPtr<ID3D11PixelShader> pixelShader,
 			Microsoft::WRL::ComPtr<ID3D11Buffer> constantBuffer,
 			ModelViewProjectionConstantBuffer constantBufferData) override;
+
+		void Render(const std::shared_ptr<DX::DeviceResources>& deviceResources,
+			Microsoft::WRL::ComPtr<ID3D11InputLayout> inputLayout,
+			Microsoft::WRL::ComPtr<ID3D11VertexShader> vertexShader,
+			Microsoft::WRL::ComPtr<ID3D11PixelShader> pixelShader,
+			Microsoft::WRL::ComPtr<ID3D11Buffer> constantBuffer,
+			ModelViewProjectionConstantBuffer constantBufferData,
+			Microsoft::WRL::ComPtr<ID3D11SamplerState> sampleState);
 	};
 }

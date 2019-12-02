@@ -10,6 +10,7 @@ cbuffer ModelViewProjectionConstantBuffer : register(b0)
 struct VertexShaderInput
 {
 	float3 pos : POSITION;
+	float2 texCoord : TEXCOORD0;
 	float3 color : COLOR0;
 };
 
@@ -17,6 +18,7 @@ struct VertexShaderInput
 struct PixelShaderInput
 {
 	float4 pos : SV_POSITION;
+	float2 texCoord : TEXCOORD0;
 	float3 color : COLOR0;
 };
 
@@ -34,6 +36,6 @@ PixelShaderInput main(VertexShaderInput input)
 
 	// 수정 없이 색을 통과합니다.
 	output.color = input.color;
-
+	output.texCoord = input.texCoord;
 	return output;
 }

@@ -19,7 +19,7 @@ namespace BS_Engine
 		Vector3 position;							//Position of GameObject
 		Vector3 rotation;							//Euler Angles of GameObject
 		Vector3 scale;								//Scale of GameObject
-		
+
 		GameObject& gameObject;						//GameObject where this Transform attached to
 
 		#pragma region Matrix

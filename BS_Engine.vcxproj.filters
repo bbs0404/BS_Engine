@@ -134,9 +134,18 @@
       <Filter>내용</Filter>
     </ClInclude>
     <ClInclude Include="tiny_obj_loader.h" />
+    <ClInclude Include="Shader.h">
+      <Filter>내용</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\StoreLogo.png">
+      <Filter>자산</Filter>
+    </Image>
+    <Image Include="C:\Users\User\Desktop\짤방\cat hide 4.jpg">
+      <Filter>자산</Filter>
+    </Image>
+    <Image Include="C:\Users\User\Desktop\짤방\4dollars.jpg">
       <Filter>자산</Filter>
     </Image>
   </ItemGroup>
@@ -169,13 +178,13 @@
     <Text Include="teapot.txt">
       <Filter>자산</Filter>
     </Text>
-    <Text Include="C:\Users\User\Desktop\capsule.txt">
+    <Text Include="capsule.txt">
       <Filter>자산</Filter>
     </Text>
-    <Text Include="C:\Users\User\Desktop\sphere.txt">
+    <Text Include="cube.txt">
       <Filter>자산</Filter>
     </Text>
-    <Text Include="C:\Users\User\Desktop\0b6d6bb58772c13593d0a0add6004c1c-48cf9c6d1cdd43cc6862d7d34a68114e2b93d497\cube.txt">
+    <Text Include="sphere.txt">
       <Filter>자산</Filter>
     </Text>
   </ItemGroup>

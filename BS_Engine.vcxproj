@@ -195,6 +195,8 @@
     <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Image Include="Assets\StoreLogo.png" />
     <Image Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Image Include="C:\Users\User\Desktop\짤방\4dollars.jpg" />
+    <Image Include="C:\Users\User\Desktop\짤방\cat hide 4.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
@@ -218,6 +220,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneRenderer.h" />
     <ClInclude Include="Screen.h" />
+    <ClInclude Include="Shader.h" />
     <ClInclude Include="tiny_obj_loader.h" />
     <ClInclude Include="Transform.h" />
   </ItemGroup>
@@ -267,20 +270,10 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="C:\Users\User\Desktop\sphere.txt" />
-  </ItemGroup>
-  <ItemGroup>
+    <Text Include="capsule.txt" />
+    <Text Include="cube.txt" />
+    <Text Include="sphere.txt" />
     <Text Include="teapot.txt">
-      <FileType>Document</FileType>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="C:\Users\User\Desktop\capsule.txt">
-      <FileType>Document</FileType>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="C:\Users\User\Desktop\0b6d6bb58772c13593d0a0add6004c1c-48cf9c6d1cdd43cc6862d7d34a68114e2b93d497\cube.txt">
       <FileType>Document</FileType>
     </Text>
   </ItemGroup>
@@ -292,6 +285,7 @@
     <Import Project="..\packages\directxtk_uwp.2019.8.23.1\build\native\directxtk_uwp.targets" Condition="Exists('..\packages\directxtk_uwp.2019.8.23.1\build\native\directxtk_uwp.targets')" />
     <Import Project="..\packages\Assimp.redist.3.0.0\build\native\Assimp.redist.targets" Condition="Exists('..\packages\Assimp.redist.3.0.0\build\native\Assimp.redist.targets')" />
     <Import Project="..\packages\Assimp.3.0.0\build\native\Assimp.targets" Condition="Exists('..\packages\Assimp.3.0.0\build\native\Assimp.targets')" />
+    <Import Project="..\packages\directxtex_uwp.2019.8.23.1\build\native\directxtex_uwp.targets" Condition="Exists('..\packages\directxtex_uwp.2019.8.23.1\build\native\directxtex_uwp.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -300,5 +294,6 @@
     <Error Condition="!Exists('..\packages\directxtk_uwp.2019.8.23.1\build\native\directxtk_uwp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\directxtk_uwp.2019.8.23.1\build\native\directxtk_uwp.targets'))" />
     <Error Condition="!Exists('..\packages\Assimp.redist.3.0.0\build\native\Assimp.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Assimp.redist.3.0.0\build\native\Assimp.redist.targets'))" />
     <Error Condition="!Exists('..\packages\Assimp.3.0.0\build\native\Assimp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Assimp.3.0.0\build\native\Assimp.targets'))" />
+    <Error Condition="!Exists('..\packages\directxtex_uwp.2019.8.23.1\build\native\directxtex_uwp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\directxtex_uwp.2019.8.23.1\build\native\directxtex_uwp.targets'))" />
   </Target>
 </Project>

@@ -9,16 +9,17 @@ namespace BS_Engine
 		friend class BS_EngineMain;
 	private:
 		std::shared_ptr<DX::DeviceResources> m_deviceResources;
-		std::map<std::wstring, Microsoft::WRL::ComPtr<ID3D11InputLayout>> m_inputLayouts;
-		std::map<std::wstring, Microsoft::WRL::ComPtr<ID3D11VertexShader>> m_vertexShaders;
-		std::map<std::wstring, Microsoft::WRL::ComPtr<ID3D11PixelShader>> m_pixelShaders;
+		Microsoft::WRL::ComPtr<ID3D11InputLayout> m_inputLayout;
+		Microsoft::WRL::ComPtr<ID3D11VertexShader> m_vertexShader;
+		Microsoft::WRL::ComPtr<ID3D11PixelShader> m_pixelShader;
+		Microsoft::WRL::ComPtr<ID3D11SamplerState> m_sampleState;
 		Microsoft::WRL::ComPtr<ID3D11Buffer> m_constantBuffer;
 
 		SceneRenderer(std::shared_ptr<DX::DeviceResources>);
 		inline void Start() { /*activeScene->Start();*/ }
 		void Update(DX::StepTimer const& timer);
 
-		void LoadShaders();
+		void LoadShader();
 
 	public:
 		~SceneRenderer();
@@ -41,8 +42,6 @@ namespace BS_Engine
 		float	m_degreesPerSecond;
 		bool	m_tracking;
 
-		static std::vector<std::wstring> VertexShaderList;
-		static std::vector<std::wstring> PixelShaderList;
 	};
 
 }
