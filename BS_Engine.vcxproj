@@ -188,6 +188,7 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Image Include="4dollars.jpg" />
     <Image Include="Assets\LockScreenLogo.scale-200.png" />
     <Image Include="Assets\SplashScreen.scale-200.png" />
     <Image Include="Assets\Square150x150Logo.scale-200.png" />
@@ -195,7 +196,6 @@
     <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Image Include="Assets\StoreLogo.png" />
     <Image Include="Assets\Wide310x150Logo.scale-200.png" />
-    <Image Include="C:\Users\User\Desktop\짤방\4dollars.jpg" />
     <Image Include="C:\Users\User\Desktop\짤방\cat hide 4.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +211,7 @@
     <ClInclude Include="Content\SampleFpsTextRenderer.h" />
     <ClInclude Include="Content\ShaderStructures.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Light.h" />
     <ClInclude Include="LineRenderer.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Mesh.h" />
@@ -233,6 +234,7 @@
     <ClCompile Include="Content\SampleFpsTextRenderer.cpp" />
     <ClCompile Include="Content\Sample3DSceneRenderer.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Light.cpp" />
     <ClCompile Include="LineRenderer.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MeshRenderer.cpp" />
@@ -270,6 +272,8 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="bs.txt" />
+    <Text Include="C:\Users\User\Desktop\Sphere_with_Grid_v1_L1.123c4428b35e-a400-4b6c-8930-ddff4fb80cc1\Sphere_with_Grid_v1_L1.123c4428b35e-a400-4b6c-8930-ddff4fb80cc1\Sphere_Grid.txt" />
     <Text Include="capsule.txt" />
     <Text Include="cube.txt" />
     <Text Include="sphere.txt" />

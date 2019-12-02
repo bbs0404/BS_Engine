@@ -28,47 +28,20 @@ namespace BS_Engine
 	private:
 		void ResetMesh()
 		{
-			vertices.clear();
-			uvs.clear();
-			normals.clear();
 			vIndices.clear();
-			uvIndices.clear();
-			nIndices.clear();
+			verticesData.clear();
 		}
 
 	public:
-		std::vector<Vector3> vertices, normals;
-		std::vector<Vector2> uvs;
-		std::vector<unsigned int> vIndices, uvIndices, nIndices;
+		std::vector<unsigned int> vIndices;
 
 		std::vector<VertexData> verticesData;
 
-		std::unique_ptr<DirectX::Model> model;
-		
 		std::shared_ptr<ScratchImage> diffuseTex;
 
 		Mesh()
-		:vertices(), uvs(), normals(), vIndices(), uvIndices(), nIndices(), verticesData()
+		:vIndices(), verticesData()
 		{
-		}
-		/*
-		bool LoadMesh(const std::string& filePath)
-		{
-			Assimp::Importer importer;
-
-			const aiScene* pScene = importer.ReadFile(filePath,
-				aiProcess_Triangulate | aiProcess_ConvertToLeftHanded);
-
-			if (pScene == nullptr)
-				return false;
-		}
-		*/
-		
-		void LoadCMO(const std::shared_ptr<DX::DeviceResources> deviceResources, const wchar_t* fileName)
-		{
-			auto device = deviceResources->GetD3DDevice();
-			auto m_fx = std::make_unique<DGSLEffectFactory>(device);
-			model = Model::CreateFromCMO(device, fileName, *m_fx);
 		}
 
 		bool Load(char path[])
@@ -77,6 +50,8 @@ namespace BS_Engine
 			attrib_t attrib;
 			std::vector<shape_t> shapes;
 			std::vector<material_t> materials;
+			std::vector<Vector3> vertices, normals;
+			std::vector<Vector2> uvs;
 
 			tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err, path);
 			for (int i = 0; i < attrib.vertices.size() / 3; i++)
@@ -91,6 +66,12 @@ namespace BS_Engine
 				uvs.push_back(uv);
 			}
 			
+			for (int i = 0; i < attrib.normals.size() / 3; i++)
+			{
+				Vector3 normal = Vector3(attrib.normals[3 * i], attrib.normals[3 * i + 1], -attrib.normals[3 * i + 2]);
+				normals.push_back(normal);
+			}
+
 			for (int i = 0; i < shapes[0].mesh.indices.size(); i++)
 			{
 				vIndices.push_back(shapes[0].mesh.indices[i].vertex_index);
@@ -98,9 +79,10 @@ namespace BS_Engine
 
 			if (uvs.size() <= 0)
 			{
-				for (int i = 0; i < vertices.size(); i++)
+				verticesData.resize(vertices.size());
+				for (const auto &idx : shapes[0].mesh.indices)
 				{
-					verticesData.push_back(VertexData(vertices[i]));
+					verticesData[idx.vertex_index] = VertexData(vertices[idx.vertex_index], normals[idx.normal_index]);
 				}
 			}
 			else
@@ -108,7 +90,7 @@ namespace BS_Engine
 				verticesData.resize(vertices.size());
 				for (const auto &idx : shapes[0].mesh.indices)
 				{
-					verticesData[idx.vertex_index] = VertexData(vertices[idx.vertex_index], uvs[idx.texcoord_index]);
+					verticesData[idx.vertex_index] = VertexData(vertices[idx.vertex_index], normals[idx.normal_index], uvs[idx.texcoord_index]);
 				}
 			}
 			return true;

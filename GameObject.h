@@ -30,6 +30,7 @@ namespace BS_Engine
 			components.push_back(component);
 			return component;
 		}
+
 		template<class T>
 		T* GetComponent()
 		{

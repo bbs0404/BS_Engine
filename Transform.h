@@ -17,14 +17,14 @@ namespace BS_Engine
 		void* operator new(size_t) = delete;		//Cannot use New Operator
 	public:
 		Vector3 position;							//Position of GameObject
-		Vector3 rotation;							//Euler Angles of GameObject
+		Quaternion rotation;						//Rotation of GameObject
 		Vector3 scale;								//Scale of GameObject
 
 		GameObject& gameObject;						//GameObject where this Transform attached to
-
+		
 		#pragma region Matrix
 		inline Matrix TranslateMatrix() { return Matrix::CreateTranslation(position); }
-		inline Matrix RotateMatrix() { return Matrix::CreateFromQuaternion(Rotation()); /*CreateFromYawPitchRoll(rotation.y, rotation.x, rotation.z);*/ }
+		inline Matrix RotateMatrix() { return Matrix::CreateFromQuaternion(rotation);}
 		inline Matrix ScaleMatrix() { return Matrix::CreateScale(scale); }
 		inline Matrix WorldMatrix() { return ScaleMatrix() * RotateMatrix() * TranslateMatrix(); }
 		#pragma endregion
@@ -38,7 +38,12 @@ namespace BS_Engine
 		inline Vector3 Down() { return -Up(); }
 		#pragma endregion
 
-		Quaternion Rotation();
+		void Rotate(const Vector3& eulerAngles);
+		void Rotate(const Quaternion& rotation);
+		Vector3 GetEulerAngles();
+
+		void LookAt(const Transform& transform);
+		void LookAt(const Vector3& position);
 
 		template<class T>
 		T* AddComponent()

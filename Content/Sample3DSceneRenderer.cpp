@@ -61,7 +61,7 @@ void Sample3DSceneRenderer::CreateWindowSizeDependentResources()
 		);
 	*/
 	cameraObject.transform.position = Vector3(0, 0, 5);
-	cameraObject.transform.rotation = Vector3(0, 0, 0);
+	cameraObject.transform.rotation = Quaternion::Identity;
 	cameraObject.AddComponent<Camera>()->SetAsMain();
 }
 

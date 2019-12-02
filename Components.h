@@ -5,3 +5,4 @@
 #include "LineRenderer.h"
 #include "MeshRenderer.h"
 #include "Mesh.h"
+#include "Light.h"

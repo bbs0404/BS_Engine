@@ -12,9 +12,9 @@ namespace BS_Engine
 	Matrix Camera::ViewMatrix()
 	{
 		Vector3 eye = gameObject.transform.position;
-		Vector3 at = gameObject.transform.Front();
-		Vector3 up = gameObject.transform.Up();
-		return XMMatrixLookAtRH(eye, eye + at, up);
+		Vector3 at = eye + gameObject.transform.Front();
+		Vector3 up = Vector3::Up;
+		return XMMatrixLookAtRH(eye, at, up);
 	}
 	Matrix Camera::PerspectiveMatrix(float aspectRatio)
 	{

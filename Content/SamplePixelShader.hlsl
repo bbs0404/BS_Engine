@@ -1,6 +1,13 @@
 Texture2D tex : register(t0);
 SamplerState sampleType : register(s0);
 
+struct Light
+{
+	float intensity;
+	float3 direction;
+	float3 color;
+};
+
 // 픽셀 셰이더를 통과한 픽셀당 색 데이터입니다.
 struct PixelShaderInput
 {

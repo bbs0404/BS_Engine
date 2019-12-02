@@ -86,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="SceneRenderer.cpp" />
     <ClCompile Include="tiny_obj_loader.cc" />
+    <ClCompile Include="Light.cpp">
+      <Filter>내용\컴포넌트</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
@@ -137,6 +140,9 @@
     <ClInclude Include="Shader.h">
       <Filter>내용</Filter>
     </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>내용\컴포넌트</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\StoreLogo.png">
@@ -145,7 +151,7 @@
     <Image Include="C:\Users\User\Desktop\짤방\cat hide 4.jpg">
       <Filter>자산</Filter>
     </Image>
-    <Image Include="C:\Users\User\Desktop\짤방\4dollars.jpg">
+    <Image Include="4dollars.jpg">
       <Filter>자산</Filter>
     </Image>
   </ItemGroup>
@@ -185,6 +191,12 @@
       <Filter>자산</Filter>
     </Text>
     <Text Include="sphere.txt">
+      <Filter>자산</Filter>
+    </Text>
+    <Text Include="C:\Users\User\Desktop\Sphere_with_Grid_v1_L1.123c4428b35e-a400-4b6c-8930-ddff4fb80cc1\Sphere_with_Grid_v1_L1.123c4428b35e-a400-4b6c-8930-ddff4fb80cc1\Sphere_Grid.txt">
+      <Filter>자산</Filter>
+    </Text>
+    <Text Include="bs.txt">
       <Filter>자산</Filter>
     </Text>
   </ItemGroup>

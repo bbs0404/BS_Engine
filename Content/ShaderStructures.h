@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "SimpleMath.h"
+#include <functional>
 using namespace DirectX::SimpleMath;
 
 namespace BS_Engine
@@ -36,6 +37,7 @@ namespace BS_Engine
 	struct VertexData
 	{
 		Vector3 pos;
+		Vector3 normal;
 		Vector2 uv;
 		Color color;
 
@@ -45,20 +47,14 @@ namespace BS_Engine
 
 		}
 
-		VertexData(Vector3 pos)
-			:pos(pos), uv(0, 0), color(1, 1, 1, 1)
+		VertexData(Vector3 pos, Vector3 normal, Color color = Color(1,1,1,1))
+			:pos(pos), normal(normal), uv(0, 0), color(color)
 		{
 
 		}
 
-		VertexData(Vector3 pos, Color color)
-			:pos(pos), uv(0, 0), color(color)
-		{
-
-		}
-
-		VertexData(Vector3 pos, Vector2 uv, Color color = Color(1,1,1,1))
-			:pos(pos), uv(uv), color(color)
+		VertexData(Vector3 pos, Vector3 normal, Vector2 uv, Color color = Color(1,1,1,1))
+			:pos(pos), normal(normal), uv(uv), color(color)
 		{
 
 		}
